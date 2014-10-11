@@ -9,7 +9,6 @@ LOGGER = logging.getLogger(__name__)
 
 class PingURL(base.HTTPStatsPlugin):
 
-    DEFAULT_PATH = 'PingURL'
     GUID = 'com.dincerkavraal.PingURL'
 
    def add_datapoints(self, stats):
