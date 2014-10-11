@@ -20,10 +20,10 @@ class PingURL(base.HTTPStatsPlugin):
             url = 'http://%s:%s%s' % (self.config.get('host', self.DEFAULT_HOST), self.config.get('port', self.DEFAULT_PORT), self.config.get('path', self.DEFAULT_PATH))
             r = requests.request('HEAD', url, timeout=timeout)
             if r.status_code == 200:
-                self.add_gauge_value('ReachTime', 'miliseconds', r.elapsed.microseconds/1000)
+                self.add_gauge_value('Request/Duration', 'miliseconds', r.elapsed.microseconds/1000)
                 LOGGER.info('URL Ping reached target at %f secs.', r.elapsed.total_seconds())
             else:
-                self.add_gauge_value('ReachTime', 'miliseconds', timeout)
+                self.add_gauge_value('Request/Duration', 'miliseconds', timeout)
                 LOGGER.info('Couldnot reach URL %s' % url)
         except:
             LOGGER.error('PingURL failed.', exc_info=True)
