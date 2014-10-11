@@ -4,7 +4,7 @@ NewRelic Plugin Agent
 An agent that polls supported backend systems and submits the results to the
 NewRelic platform. Currently supported backend systems are:
 
-- PingURL
+- PingURL (see below)
 - Alternative PHP Cache
 - Apache HTTP Server
 - CouchDB
@@ -114,8 +114,13 @@ PingURL Notes
 Reports the availability of a URL. Needs `requests package
 <http://docs.python-requests.org/en/latest/>`_ for python which can be easily installed via
 
+::
 
-pip install requests
+    pip install requests
+
+And can configure the plugin as
+
+::
 
     pingurl:
       name: 'any name you would see on Dashboard of newrelic.com'
